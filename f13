@@ -9,7 +9,8 @@ y2="${2:-$y1}"
 
 for i in $(seq "$y1" "$y2"); do
   for j in $(seq 1 12); do
-    test "$(date -d "$i-$j-13" +%a)" = 'Fri' && \
+    if test "$(date -d "$i-$j-13" +%a)" = 'Fri'; then
       printf '%04d-%02d-13\n' "$i" "$j"
+    fi
   done
 done
